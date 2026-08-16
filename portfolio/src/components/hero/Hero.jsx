@@ -1,5 +1,6 @@
 import TypingText from "./TypingText";
 import Button from "../ui/Button";
+import SocialLinks from "../ui/SocialLinks"
 
 export default function Hero() {
   return (
@@ -93,6 +94,8 @@ export default function Hero() {
                     Let's Talk
                 </Button>
             </div>
+
+            <SocialLinks />
 
         </div>
 
