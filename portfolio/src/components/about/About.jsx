@@ -173,7 +173,7 @@ export default function About() {
                     text-white
                   "
                 >
-                  <img src="../../../public/mahdi.png" alt=""/>
+                  <img src="../../../public/mahdi2.png" alt=""/>
                 </span>
               </div>
 

@@ -243,7 +243,7 @@ export default function Skills() {
                 text-cyan-400
               "
             >
-              04
+              05
             </span>
 
             <span className="h-px w-8 bg-cyan-400/50" />
@@ -480,7 +480,7 @@ function SkillCard({ skill }) {
           <Icon
             size={48}
             color={skill.color}
-            strokeWidth={1.8}
+            strokeWidth={0.9}
             className="
               transition-transform
               duration-300

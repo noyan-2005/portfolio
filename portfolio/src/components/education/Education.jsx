@@ -76,7 +76,7 @@ export default function Education() {
         min-h-screen
         overflow-hidden
         bg-[#020817]
-        py-28
+        py-2
       "
     >
       {/* Background Glow */}

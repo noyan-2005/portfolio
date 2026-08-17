@@ -162,26 +162,6 @@ export default function Experience() {
           </div>
         </div>
 
-
-        {/* Bottom Statement */}
-        <div
-          className="
-            mt-16
-            border-t
-            border-white/[0.06]
-            pt-8
-          "
-        >
-          <p
-            className="
-              text-sm
-              font-medium
-              text-white/40
-            "
-          >
-            Currently open to freelance opportunities.
-          </p>
-        </div>
       </div>
     </section>
   );
