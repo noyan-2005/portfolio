@@ -35,7 +35,7 @@ export default function SocialLinks() {
       {/* Decorative line */}
       <span className="h-px w-10 bg-white/10" />
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-2">
         {socialLinks.map((social) => {
           const Icon = social.icon;
 
