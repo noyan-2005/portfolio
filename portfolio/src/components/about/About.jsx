@@ -8,7 +8,7 @@ const profileInfo = [
   {
     icon: CalendarDays,
     label: "Age",
-    value: "20 years old",
+    value: "21 years old",
   },
   {
     icon: MapPin,

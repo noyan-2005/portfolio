@@ -1,0 +1,450 @@
+
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+
+import { projects } from "./projects";
+import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
+
+export default function ProjectsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [selectedProject, setSelectedProject] =
+    useState(null);
+
+  const totalProjects = projects.length;
+
+  const goNext = useCallback(() => {
+    setActiveIndex(
+      (prev) => (prev + 1) % totalProjects
+    );
+  }, [totalProjects]);
+
+  const goPrevious = useCallback(() => {
+    setActiveIndex(
+      (prev) =>
+        (prev - 1 + totalProjects) %
+        totalProjects
+    );
+  }, [totalProjects]);
+
+  /* --------------------------------
+     Auto Play
+  -------------------------------- */
+
+  useEffect(() => {
+    if (isPaused || selectedProject) return;
+
+    const interval = setInterval(() => {
+      goNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [
+    isPaused,
+    selectedProject,
+    goNext,
+  ]);
+
+  /* --------------------------------
+     Keyboard Navigation
+  -------------------------------- */
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (selectedProject) return;
+
+      if (event.key === "ArrowRight") {
+        goNext();
+      }
+
+      if (event.key === "ArrowLeft") {
+        goPrevious();
+      }
+    };
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+    };
+  }, [
+    selectedProject,
+    goNext,
+    goPrevious,
+  ]);
+
+  /* --------------------------------
+     Calculate Card Position
+  -------------------------------- */
+
+  const getPosition = useCallback(
+    (index) => {
+      let difference =
+        index - activeIndex;
+
+      if (
+        difference >
+        totalProjects / 2
+      ) {
+        difference -= totalProjects;
+      }
+
+      if (
+        difference <
+        -totalProjects / 2
+      ) {
+        difference += totalProjects;
+      }
+
+      return difference;
+    },
+    [activeIndex, totalProjects]
+  );
+
+  /* --------------------------------
+     Visible Projects
+  -------------------------------- */
+
+ const visibleProjects = useMemo(() => {
+  return projects
+    .map((project, index) => ({
+      project,
+      index,
+      position: getPosition(index),
+    }))
+    .filter(
+      ({ position }) =>
+        position >= -1 && position <= 1
+    );
+}, [getPosition]);
+
+  return (
+    <>
+      <section
+        id="projects"
+        className="
+          relative
+          min-h-screen
+          overflow-hidden
+          bg-[#020817]
+          py-2
+        "
+      >
+        {/* --------------------------------
+            Background Glow
+        -------------------------------- */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-[5%]
+            top-[35%]
+            h-[450px]
+            w-[450px]
+            rounded-full
+            bg-brand/[0.035]
+            blur-[140px]
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[5%]
+            top-[10%]
+            h-[350px]
+            w-[350px]
+            rounded-full
+            bg-brand/[0.025]
+            blur-[120px]
+          "
+        />
+
+        <div
+          className="
+            relative
+            mx-auto
+            max-w-[1400px]
+            px-8
+            lg:px-12
+          "
+        >
+          {/* --------------------------------
+              Header
+          -------------------------------- */}
+
+          <div className="mb-12">
+            <div className="flex items-center gap-3">
+              <span
+                className="
+                  text-xs
+                  font-semibold
+                  tracking-[0.25em]
+                  text-brand
+                "
+              >
+                03
+              </span>
+
+              <span className="h-px w-8 bg-brand/50" />
+
+              <span
+                className="
+                  text-xs
+                  font-medium
+                  tracking-[0.2em]
+                  text-text-muted
+                "
+              >
+                PROJECTS
+              </span>
+            </div>
+
+            <h2
+              className="
+                mt-6
+                max-w-[700px]
+                text-4xl
+                font-bold
+                leading-[1.1]
+                tracking-[-0.035em]
+                text-white
+                sm:text-5xl
+              "
+            >
+              Selected projects
+              <span className="block text-white/35">
+                I’ve built and explored.
+              </span>
+            </h2>
+
+            <p
+              className="
+                mt-6
+                max-w-[620px]
+                text-sm
+                leading-7
+                text-text-muted
+              "
+            >
+              A selection of digital products,
+              experiments and interfaces built while
+              exploring development, product thinking
+              and modern web technologies.
+            </p>
+          </div>
+
+          {/* --------------------------------
+              Carousel
+          -------------------------------- */}
+
+          <div
+            className="
+              relative
+              mx-auto
+              mt-2
+              h-[420px]
+              w-full
+              md:h-[500px]
+            "
+            style={{
+              perspective: "1400px",
+            }}
+            onMouseEnter={() =>
+              setIsPaused(true)
+            }
+            onMouseLeave={() =>
+              setIsPaused(false)
+            }
+          >
+            {/* Curved Rail */}
+
+            <div
+              className="
+                pointer-events-none
+                absolute
+                left-1/2
+                top-1/2
+                h-[250px]
+                w-[85%]
+                -translate-x-1/2
+                -translate-y-1/2
+                rounded-[50%]
+                border
+                border-white/[0.025]
+              "
+              style={{
+                transform:
+                  "translate(-50%, -50%) rotateX(65deg)",
+              }}
+            />
+
+            {/* Project Cards */}
+
+            {visibleProjects.map(
+              ({
+                project,
+                position,
+              }) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  position={position}
+                  isPaused={isPaused}
+                  onClick={() => {
+                    if (position === 0) {
+                      setSelectedProject(
+                        project
+                      );
+                    }
+                  }}
+                />
+              )
+            )}
+
+            {/* Previous */}
+
+            <button
+              type="button"
+              onClick={goPrevious}
+              aria-label="Previous project"
+              className="
+                absolute
+                left-0
+                top-1/2
+                z-[200]
+                flex
+                h-11
+                w-11
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/10
+                bg-white/[0.035]
+                text-white/70
+                backdrop-blur-xl
+                transition-all
+                duration-300
+                hover:border-brand/30
+                hover:bg-brand/10
+                hover:text-white
+                md:left-4
+                md:h-12
+                md:w-12
+              "
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Next */}
+
+            <button
+              type="button"
+              onClick={goNext}
+              aria-label="Next project"
+              className="
+                absolute
+                right-0
+                top-1/2
+                z-[200]
+                flex
+                h-11
+                w-11
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/10
+                bg-white/[0.035]
+                text-white/70
+                backdrop-blur-xl
+                transition-all
+                duration-300
+                hover:border-brand/30
+                hover:bg-brand/10
+                hover:text-white
+                md:right-4
+                md:h-12
+                md:w-12
+              "
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* --------------------------------
+              Carousel Footer
+          -------------------------------- */}
+
+          <div
+            className="
+              mt-2
+              flex
+              items-center
+              justify-center
+              border-t
+              border-white/[0.06]
+              pt-6
+            "
+          >
+            {/* Indicators */}
+
+            <div className="flex items-center gap-2">
+              {projects.map(
+                (project, index) => (
+                  <button
+                    key={project.id}
+                    type="button"
+                    onClick={() =>
+                      setActiveIndex(index)
+                    }
+                    aria-label={`Go to ${project.title}`}
+                    className={`
+                      h-1
+                      rounded-full
+                      transition-all
+                      duration-500
+                      ${
+                        index === activeIndex
+                          ? "w-8 bg-brand"
+                          : "w-2 bg-white/15 hover:bg-white/30"
+                      }
+                    `}
+                  />
+                )
+              )}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --------------------------------
+          Project Modal
+      -------------------------------- */}
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() =>
+          setSelectedProject(null)
+        }
+      />
+    </>
+  );
+}

@@ -23,3 +23,57 @@
   --color-nav-active-start: #133053;
   --color-nav-active-end: #081d3a;
 }
+
+/* ================================
+   Glass Modal Scrollbar
+================================ */
+
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+/* Chrome / Edge / Safari */
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 18px 0;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.1)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.08),
+    0 0 8px rgba(255, 255, 255, 0.04);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.16)
+  );
+
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.12),
+    0 0 10px rgba(255, 255, 255, 0.08);
+}

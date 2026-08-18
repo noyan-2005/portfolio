@@ -3,9 +3,8 @@ import {
   UserRound,
   GraduationCap,
   UserRoundCheck,
-  Gamepad2,
+  Folder,
   Blocks,
-  CodeXml,
   Phone,
 } from "lucide-react";
 
@@ -33,17 +32,12 @@ export const navItems = [
   {
     id: "projects",
     label: "Projects",
-    icon: Gamepad2,
+    icon: Folder,
   },
   {
     id: "skills",
     label: "Skills",
     icon: Blocks,
-  },
-  {
-    id: "stack",
-    label: "Tech Stack",
-    icon: CodeXml,
   },
   {
     id: "contact",

@@ -119,7 +119,7 @@ const skills = {
         level: "Learning",
         experience: "Currently learning",
         description: "Exploring backend development with Python.",
-        progress: 45,
+        progress: 25,
     },
   ],
 
@@ -163,7 +163,7 @@ const skills = {
       level: "Intermediate",
       experience: "Personal projects",
       description: "Designing clean and modern interfaces.",
-      progress: 68,
+      progress: 88,
     },
   ],
 };

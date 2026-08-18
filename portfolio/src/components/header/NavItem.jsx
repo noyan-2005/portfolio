@@ -2,17 +2,20 @@ export default function NavItem({
   item,
   isActive,
   isExpanded,
-  onClick,
+  handleNavigation,
 }) {
   const Icon = item.icon;
 
   return (
     <button
       type="button"
-      onClick={() => onClick(item.id)}
+      onClick={() => handleNavigation(item.id)}
       className={`
-        group relative
-        flex h-[60px] shrink-0
+        group
+        relative
+        flex
+        h-[60px]
+        shrink-0
         items-center
         overflow-hidden
         rounded-[20px]
@@ -22,7 +25,7 @@ export default function NavItem({
         duration-300
         ease-[cubic-bezier(0.4,0,0.2,1)]
 
-        ${isExpanded ? "w-[180px] " : "w-[58px] "}
+        ${isExpanded ? "w-[180px]" : "w-[58px]"}
 
         ${
           isActive
@@ -40,12 +43,13 @@ export default function NavItem({
         }
       `}
     >
-
       {/* Icon */}
       <span
         className={`
-          flex min-w-[26px]
-          items-center justify-center
+          flex
+          min-w-[26px]
+          items-center
+          justify-center
 
           transition-transform
           duration-300
@@ -68,7 +72,6 @@ export default function NavItem({
       {/* Label */}
       <span
         className={`
-          
           ml-4
           whitespace-nowrap
           text-sm
@@ -79,8 +82,8 @@ export default function NavItem({
 
           ${
             isExpanded
-              ? "opacity-100"
-              : "opacity-0"
+              ? "translate-x-0 opacity-100"
+              : "translate-x-[-8px] opacity-0"
           }
         `}
       >

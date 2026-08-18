@@ -205,12 +205,13 @@ function ExperienceItem({ experience }) {
 
 
       {/* Timeline Dot */}
-      <div className="relative hidden justify-center sm:flex">
+      <div className="relative hidden sm:flex">
         <div
           className={`
             relative
+            left-
             z-10
-            mt-7
+            mt-8
             size-3
             rounded-full
             border

@@ -4,7 +4,7 @@ import SocialLinks from "../ui/SocialLinks"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#020817]">
+    <section id="home" className="relative min-h-screen overflow-hidden bg-[#020817]">
       
       {/* Background Glow */}
       <div
@@ -86,11 +86,24 @@ export default function Hero() {
           </p>
 
             <div className="mt-9 flex items-center gap-4">
-                <Button variant="primary">
+                <a
+                  href="/resume.pdf"
+                  download="Mahdi-Alizadeh-Resume.pdf"
+                >
+                  <Button variant="primary">
                     Download Resume
-                </Button>
+                  </Button>
+                </a>
 
-                <Button variant="secondary">
+                <Button 
+                 variant="secondary" 
+                 onClick={() => {
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                }} >
                     Let's Talk
                 </Button>
             </div>

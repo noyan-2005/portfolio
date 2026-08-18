@@ -5,6 +5,7 @@ import Education from "./components/education/Education";
 import Experience from './components/experience/Experience';
 import Skills from './components/skills/Skills';
 import Contact from './components/contact/Contact';
+import ProjectsSection from "./components/projects/ProjectsSection";
 
 
 import './App.css'
@@ -14,12 +15,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Education />
-      <Experience />
-      <Skills />
-      <Contact />
+      <Hero id="home" />
+      <About id="about" />
+      <Education id="education" />
+      <Experience id="experience" />
+      <ProjectsSection id="projects" />
+      <Skills id="skills" />
+      <Contact id="contact" />
     </>
   )
 }
