@@ -1,6 +1,8 @@
 // src/components/projects/ProjectModal.jsx
 
 import { useEffect } from "react";
+import { useLanguage } from "../../context/LanguageContext";
+import { getTranslations } from "../../data/translations";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -13,6 +15,9 @@ export default function ProjectModal({
   project,
   onClose,
 }) {
+  const { language } = useLanguage();
+  const t = getTranslations(language);
+
   useEffect(() => {
     if (!project) return;
 
@@ -80,7 +85,7 @@ export default function ProjectModal({
             <button
               onClick={onClose}
               className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md transition hover:bg-white/10"
-              aria-label="Close modal"
+              aria-label={t.projects.close}
             >
               <X size={20} />
             </button>
@@ -100,7 +105,7 @@ export default function ProjectModal({
             <div className="relative -mt-10 px-6 pb-8 md:px-10">
               <div className="relative">
                 <p className="mb-2 text-xs uppercase tracking-[0.2em] text-white/40">
-                  {project.category}
+                  {project.category[language]}
                 </p>
 
                 <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
@@ -111,7 +116,7 @@ export default function ProjectModal({
               {/* Description */}
               <div className="mt-8 max-w-3xl">
                 <p className="text-sm leading-7 text-white/60 md:text-base">
-                  {project.description}
+                  {project.description[language]}
                 </p>
               </div>
 
@@ -119,7 +124,7 @@ export default function ProjectModal({
               <div className="mt-8">
                 <div className="mb-3 flex items-center gap-2 text-sm font-medium text-white">
                   <Code2 size={16} />
-                  Technologies
+                  {t.projects.technologies}
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -146,11 +151,8 @@ export default function ProjectModal({
                 >
                   <ExternalLink size={17} />
 
-                  Visit Live
+                  {t.projects.visitLive}
 
-                  <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    ↗
-                  </span>
                 </a>
 
                 <a
@@ -161,7 +163,7 @@ export default function ProjectModal({
                 >
                   {/* <Github size={17} /> */}
 
-                  View on GitHub
+                  {t.projects.github}
                 </a>
               </div>
             </div>

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 import { navItems } from "./nav.config";
+import { useLanguage } from "../../context/LanguageContext";
+import { getTranslations } from "../../data/translations";
 
 export default function Navbar() {
   const [activeItem, setActiveItem] = useState("home");
   const [isExpanded, setIsExpanded] = useState(false);
+  const { language } = useLanguage();
+  const t = getTranslations(language);
 
   /*
    * ==============================
@@ -107,9 +111,11 @@ export default function Navbar() {
           h-full
           flex-col
           items-center
-          pt-[51px]
+          pt-[115px]
         "
       >
+        
+
         {/* Navigation */}
 
         <nav
@@ -126,6 +132,7 @@ export default function Navbar() {
             <NavItem
               key={item.id}
               item={item}
+              label={t.nav[item.labelKey]}
               isActive={
                 activeItem === item.id
               }

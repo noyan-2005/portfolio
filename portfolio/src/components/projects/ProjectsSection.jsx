@@ -7,10 +7,14 @@ import {
 } from "lucide-react";
 
 import { projects } from "./projects";
+import { useLanguage } from "../../context/LanguageContext";
+import { getTranslations } from "../../data/translations";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
 export default function ProjectsSection() {
+  const { language } = useLanguage();
+  const t = getTranslations(language);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedProject, setSelectedProject] =
@@ -209,7 +213,7 @@ export default function ProjectsSection() {
                   text-text-muted
                 "
               >
-                PROJECTS
+                {t.projects.section}
               </span>
             </div>
 
@@ -225,9 +229,9 @@ export default function ProjectsSection() {
                 sm:text-5xl
               "
             >
-              Selected projects
+              {t.projects.heading}
               <span className="block text-white/35">
-                I’ve built and explored.
+                {t.projects.headingAccent}
               </span>
             </h2>
 
@@ -240,10 +244,7 @@ export default function ProjectsSection() {
                 text-text-muted
               "
             >
-              A selection of digital products,
-              experiments and interfaces built while
-              exploring development, product thinking
-              and modern web technologies.
+              {t.projects.intro}
             </p>
           </div>
 
@@ -320,7 +321,7 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={goPrevious}
-              aria-label="Previous project"
+              aria-label={t.projects.previous}
               className="
                 absolute
                 left-0
@@ -356,7 +357,7 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={goNext}
-              aria-label="Next project"
+              aria-label={t.projects.next}
               className="
                 absolute
                 right-0

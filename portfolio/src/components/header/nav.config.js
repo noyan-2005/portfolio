@@ -9,39 +9,11 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  {
-    id: "home",
-    label: "Home",
-    icon: House,
-  },
-  {
-    id: "about",
-    label: "About",
-    icon: UserRound,
-  },
-  {
-    id: "education",
-    label: "Education",
-    icon: GraduationCap,
-  },
-  {
-    id: "experience",
-    label: "Experience",
-    icon: UserRoundCheck,
-  },
-  {
-    id: "projects",
-    label: "Projects",
-    icon: Folder,
-  },
-  {
-    id: "skills",
-    label: "Skills",
-    icon: Blocks,
-  },
-  {
-    id: "contact",
-    label: "Contact",
-    icon: Phone,
-  },
+  { id: "home", icon: House, labelKey: "home" },
+  { id: "about", icon: UserRound, labelKey: "about" },
+  { id: "education", icon: GraduationCap, labelKey: "education" },
+  { id: "experience", icon: UserRoundCheck, labelKey: "experience" },
+  { id: "projects", icon: Folder, labelKey: "projects" },
+  { id: "skills", icon: Blocks, labelKey: "skills" },
+  { id: "contact", icon: Phone, labelKey: "contact" },
 ];

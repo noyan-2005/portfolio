@@ -1,4 +1,6 @@
 import { Mail } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
+import { getTranslations } from "../../data/translations";
 
 import {
   FaGithub,
@@ -8,28 +10,30 @@ import {
 
 const socialLinks = [
   {
-    name: "GitHub",
+    key: "github", name: "GitHub",
     icon: FaGithub,
     href: "https://github.com/noyan-2005",
   },
   {
-    name: "LinkedIn",
+    key: "linkedin", name: "LinkedIn",
     icon: FaLinkedinIn,
     href: "https://www.linkedin.com/in/mahdi-alizadeh-b4636942a/",
   },
   {
-    name: "Instagram",
+    key: "instagram", name: "Instagram",
     icon: FaInstagram,
     href: "https://instagram.com/thenoyan.dev",
   },
   {
-    name: "Email",
+    key: "email", name: "Email",
     icon: Mail,
-    href: "ma13842791199@gmail.com",
+    href: "mailto:ma13842791199@gmail.com",
   },
 ];
 
 export default function SocialLinks() {
+  const { language } = useLanguage();
+  const t = getTranslations(language);
   return (
     <div className="mt-10 flex items-center gap-6">
       {/* Decorative line */}
@@ -41,7 +45,7 @@ export default function SocialLinks() {
 
           return (
             <a
-              key={social.name}
+              key={t.social[social.key]}
               href={social.href}
               target={social.name === "Email" ? undefined : "_blank"}
               rel={
@@ -49,7 +53,7 @@ export default function SocialLinks() {
                   ? undefined
                   : "noopener noreferrer"
               }
-              aria-label={social.name}
+              aria-label={t.social[social.key]}
               className="
                 group
                 relative
@@ -99,7 +103,7 @@ export default function SocialLinks() {
                   group-hover:opacity-100
                 "
               >
-                {social.name}
+                {t.social[social.key]}
               </span>
             </a>
           );

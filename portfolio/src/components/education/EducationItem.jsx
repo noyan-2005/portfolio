@@ -6,6 +6,7 @@ export default function EducationItem({
   description,
   tags = [],
   current = false,
+  currentLabel = "Current",
 }) {
   return (
     <div className="relative grid grid-cols-[90px_24px_1fr] gap-5 sm:grid-cols-[120px_24px_1fr] sm:gap-7">

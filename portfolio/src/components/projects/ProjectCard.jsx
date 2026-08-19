@@ -1,5 +1,8 @@
 // src/components/projects/ProjectCard.jsx
 
+import { useLanguage } from "../../context/LanguageContext";
+import { getTranslations } from "../../data/translations";
+
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import ProjectPreview from "./ProjectPreview";
@@ -10,6 +13,8 @@ export default function ProjectCard({
   onClick,
   isPaused,
 }) {
+  const { language } = useLanguage();
+  const t = getTranslations(language);
   const isActive = position === 0;
   const x = position * 310;
 
@@ -83,7 +88,7 @@ export default function ProjectCard({
           <div className="flex items-end justify-between gap-4">
             <div>
               <p className="mb-1 text-xs uppercase tracking-[0.2em] text-white/50">
-                {project.category}
+                {project.category[language]}
               </p>
 
               <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
