@@ -1,15 +1,16 @@
-import alma1 from "../../assets/projects/alma/1.png";
-import alma2 from "../../assets/projects/alma/2.png";
-import alma3 from "../../assets/projects/alma/3.png";
-import portfolio1 from "../../assets/projects/Portfolio/1.png";
-import portfolio2 from "../../assets/projects/Portfolio/2.png";
-import portfolio3 from "../../assets/projects/Portfolio/3.jpg";
-import Four1 from "../../assets/projects/Four/1.jpg";
-import Four2 from "../../assets/projects/Four/2.jpg";
-import Four3 from "../../assets/projects/Four/3.jpg";
-import Tree1 from "../../assets/projects/Tree/1.jpg";
-import Tree2 from "../../assets/projects/Tree/2.png";
-import Tree3 from "../../assets/projects/Tree/3.png";
+import alma1 from "../../assets/projects/Alma/1.webp";
+import alma2 from "../../assets/projects/alma/2.webp";
+import alma3 from "../../assets/projects/alma/3.webp";
+import alma4 from "../../assets/projects/alma/4.webp";
+
+import portfolio1 from "../../assets/projects/Portfolio/1.webp";
+import portfolio2 from "../../assets/projects/Portfolio/2.webp";
+import portfolio3 from "../../assets/projects/Portfolio/3.webp";
+import portfolio4 from "../../assets/projects/Portfolio/3.webp";
+
+import Example1 from "../../assets/projects/Example/1.webp";
+import Example2 from "../../assets/projects/Example/2.webp";
+import Example3 from "../../assets/projects/Example/3.webp";
 
 export const projects = [
   {
@@ -21,7 +22,7 @@ export const projects = [
       fa: "یک اپلیکیشن مدرن برای شمارش کالری که با تمرکز بر رابط کاربری تمیز و تجربه روزانه ساده طراحی شده است.",
     },
     technologies: ["React", "Tailwind CSS", "Framer Motion", "JavaScript"],
-    images: [alma1, alma2, alma3],
+    images: [alma1, alma2, alma3, alma4],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/noyan-2005/Alma",
     featured: true,
@@ -35,7 +36,7 @@ export const projects = [
       fa: "یک پورتفولیوی شخصی مدرن با تمرکز بر طراحی مینیمال، انیمیشن‌های نرم و ارائه بصری حرفه‌ای.",
     },
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
-    images: [portfolio1, portfolio2, portfolio3],
+    images: [portfolio1, portfolio2, portfolio3, portfolio4],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/noyan-2005",
     featured: true,
@@ -49,23 +50,10 @@ export const projects = [
       fa: "یک پروژه فرانت‌اند با رابط مدرن و معماری واکنش‌گرا.",
     },
     technologies: ["React", "JavaScript", "Tailwind CSS"],
-    images: [Tree1, Tree2, Tree3],
+    images: [   Example1,    Example2,   Example3],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/noyan-2005",
     featured: false,
   },
-  {
-    id: 4,
-    title: "Project Four",
-    category: { en: "Web Design", fa: "طراحی وب" },
-    description: {
-      en: "A responsive web experience built around a simple and elegant interface.",
-      fa: "یک تجربه وب واکنش‌گرا با تمرکز بر رابطی ساده و ظریف.",
-    },
-    technologies: ["React", "Tailwind CSS"],
-    images: [Four1, Four2, Four3],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/noyan-2005",
-    featured: false,
-  },
+  
 ];

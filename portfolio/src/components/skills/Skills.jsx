@@ -173,7 +173,6 @@ export default function Skills() {
         overflow-hidden
         bg-background
         text-text-primary
-        py-20
         sm:py-24
         lg:py-28
         transition-colors

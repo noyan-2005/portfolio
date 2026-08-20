@@ -136,7 +136,7 @@ export default function ProjectsSection() {
           min-h-screen
           overflow-hidden
           bg-background
-          py-2
+          py-20
           text-text-primary
           transition-colors
           duration-300
