@@ -10,41 +10,11 @@ export default function LanguageSwitcher() {
       type="button"
       onClick={toggleLanguage}
       aria-label={`Switch to ${targetLanguage}`}
-      className="
-        fixed
-        left-6
-        top-6
-        z-[100]
-
-        flex
-        items-center
-        justify-center
-
-        rounded-full
-
-        border
-        border-border
-
-        bg-surface/60
-
-        px-3
-        py-2.5
-
-        text-sm
-        font-medium
-        text-text-primary
-
-        backdrop-blur-md
-
-        transition-all
-        duration-300
-
-        hover:border-brand/30
-        hover:bg-surface
-        hover:text-brand
-
-        shadow-sm
-      "
+      className="fixed left-6 top-6 z-[100] flex items-center justify-center
+                 rounded-full border border-white/10 bg-white/5
+                 px-4 py-2 text-sm font-medium text-white
+                 backdrop-blur-md transition-all duration-300
+                 hover:bg-white/10"
     >
       {targetLanguage}
     </button>

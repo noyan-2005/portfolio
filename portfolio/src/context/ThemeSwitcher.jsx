@@ -20,42 +20,29 @@ export default function ThemeSwitcher() {
         left-20
         top-6
         z-[100]
-
         flex
         h-10
         w-10
         items-center
         justify-center
-
         rounded-full
         border
-        border-border
-
-        bg-surface/70
-        text-text-secondary
-
-        shadow-sm
+        border-white/10
+        bg-white/5
+        text-white
         backdrop-blur-md
-
         transition-all
         duration-300
-
-        hover:border-brand/30
-        hover:bg-surface
-        hover:text-brand
-        hover:shadow-[0_0_20px_rgba(34,211,238,0.08)]
+        hover:bg-white/10
+        dark:border-white/10
+        dark:bg-white/5
+        dark:text-white
       "
     >
       {isDark ? (
-        <Sun
-          size={18}
-          strokeWidth={1.8}
-        />
+        <Sun size={18} strokeWidth={1.8} />
       ) : (
-        <Moon
-          size={18}
-          strokeWidth={1.8}
-        />
+        <Moon size={18} strokeWidth={1.8} />
       )}
     </button>
   );

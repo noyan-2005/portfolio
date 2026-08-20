@@ -8,22 +8,18 @@ export default function Button({
     primary: `
       bg-brand
       text-brand-dark
-
       hover:-translate-y-0.5
       hover:shadow-[0_0_30px_rgba(0,213,239,0.25)]
     `,
 
     secondary: `
       border
-      border-border
-      bg-surface/50
-      text-text-primary
-
+      border-white/10
+      bg-white/[0.03]
+      text-white
       backdrop-blur-sm
-
       hover:border-brand/30
-      hover:bg-surface
-      hover:text-brand
+      hover:bg-white/[0.06]
     `,
   };
 
@@ -31,21 +27,13 @@ export default function Button({
     <button
       type="button"
       className={`
-        cursor-pointer
         rounded-xl
-
-        px-4
-        py-3
-
-        text-xs
+        px-6
+        py-3.5
+        text-sm
         font-semibold
-
         transition-all
         duration-300
-
-        sm:px-5
-        sm:py-3.5
-        sm:text-sm
 
         ${variants[variant]}
 
