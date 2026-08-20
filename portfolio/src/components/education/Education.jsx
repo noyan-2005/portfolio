@@ -1,54 +1,148 @@
 import EducationItem from "./EducationItem";
+
 import { useLanguage } from "../../context/LanguageContext";
 import { getTranslations } from "../../data/translations";
 
 const education = [
   {
     year: "2023",
-    title: { en: "Computer Engineering", fa: "مهندسی کامپیوتر" },
-    type: { en: "Bachelor's Degree", fa: "مقطع کارشناسی" },
-    institution: { en: "University", fa: "دانشگاه" },
+    title: {
+      en: "Computer Engineering",
+      fa: "مهندسی کامپیوتر",
+    },
+    type: {
+      en: "Bachelor's Degree",
+      fa: "مقطع کارشناسی",
+    },
+    institution: {
+      en: "University",
+      fa: "دانشگاه",
+    },
     description: {
       en: "Studying computer engineering while building practical experience through programming, frontend development and personal projects.",
       fa: "در حال تحصیل در رشته مهندسی کامپیوتر و همزمان کسب تجربه عملی از طریق برنامه‌نویسی، توسعه فرانت‌اند و پروژه‌های شخصی.",
     },
-    tags: { en: ["Computer Science", "Programming", "Software Development"], fa: ["علوم کامپیوتر", "برنامه‌نویسی", "توسعه نرم‌افزار"] },
+    tags: {
+      en: [
+        "Computer Science",
+        "Programming",
+        "Software Development",
+      ],
+      fa: [
+        "علوم کامپیوتر",
+        "برنامه‌نویسی",
+        "توسعه نرم‌افزار",
+      ],
+    },
     current: true,
   },
+
   {
     year: "2023",
-    title: { en: "Frontend Development", fa: "توسعه فرانت‌اند" },
-    type: { en: "Self-directed Learning", fa: "یادگیری خودآموز" },
-    institution: { en: "Independent Learning", fa: "یادگیری مستقل" },
+    title: {
+      en: "Frontend Development",
+      fa: "توسعه فرانت‌اند",
+    },
+    type: {
+      en: "Self-directed Learning",
+      fa: "یادگیری خودآموز",
+    },
+    institution: {
+      en: "Independent Learning",
+      fa: "یادگیری مستقل",
+    },
     description: {
       en: "Continuously learning modern frontend technologies and applying them through real-world projects and experiments.",
       fa: "به‌صورت مداوم فناوری‌های مدرن فرانت‌اند را یاد می‌گیرم و آن‌ها را در پروژه‌ها و آزمایش‌های واقعی به کار می‌برم.",
     },
-    tags: { en: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS"], fa: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS"] },
+    tags: {
+      en: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+      ],
+      fa: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+      ],
+    },
     current: true,
   },
+
   {
     year: "2025 — 2026",
-    title: { en: "Product & Digital Development", fa: "توسعه محصول دیجیتال" },
-    type: { en: "Practical Experience", fa: "تجربه عملی" },
-    institution: { en: "Personal Projects", fa: "پروژه‌های شخصی" },
+    title: {
+      en: "Product & Digital Development",
+      fa: "توسعه محصول دیجیتال",
+    },
+    type: {
+      en: "Practical Experience",
+      fa: "تجربه عملی",
+    },
+    institution: {
+      en: "Personal Projects",
+      fa: "پروژه‌های شخصی",
+    },
     description: {
       en: "Learning through building digital products, exploring product thinking, UI/UX and the process of turning ideas into working products.",
       fa: "از طریق ساخت محصولات دیجیتال، تفکر محصول، UI/UX و تبدیل ایده‌ها به محصولات واقعی در حال یادگیری هستم.",
     },
-    tags: { en: ["Product Thinking", "UI/UX", "Startup", "Problem Solving"], fa: ["تفکر محصول", "UI/UX", "استارتاپ", "حل مسئله"] },
+    tags: {
+      en: [
+        "Product Thinking",
+        "UI/UX",
+        "Startup",
+        "Problem Solving",
+      ],
+      fa: [
+        "تفکر محصول",
+        "UI/UX",
+        "استارتاپ",
+        "حل مسئله",
+      ],
+    },
     current: true,
   },
+
   {
     year: "2026 — Now",
-    title: { en: "Backend Development", fa: "توسعه بک‌اند" },
-    type: { en: "Self-directed Learning", fa: "یادگیری خودآموز" },
-    institution: { en: "Independent Learning", fa: "یادگیری مستقل" },
+    title: {
+      en: "Backend Development",
+      fa: "توسعه بک‌اند",
+    },
+    type: {
+      en: "Self-directed Learning",
+      fa: "یادگیری خودآموز",
+    },
+    institution: {
+      en: "Independent Learning",
+      fa: "یادگیری مستقل",
+    },
     description: {
       en: "Learning backend development with Python, focusing on APIs, databases and server-side application development.",
       fa: "در حال یادگیری توسعه بک‌اند با Python و تمرکز روی APIها، دیتابیس و توسعه سمت سرور.",
     },
-    tags: { en: ["Python", "Backend", "APIs", "Databases"], fa: ["Python", "Backend", "API", "Database"] },
+    tags: {
+      en: [
+        "Python",
+        "Backend",
+        "APIs",
+        "Databases",
+      ],
+      fa: [
+        "Python",
+        "Backend",
+        "API",
+        "Database",
+      ],
+    },
     current: true,
   },
 ];
@@ -58,21 +152,156 @@ export default function Education() {
   const t = getTranslations(language);
 
   return (
-    <section id="education" className="relative min-h-screen overflow-hidden bg-[#020817] py-2">
-      <div className="pointer-events-none absolute right-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-brand/[0.04] blur-[130px]" />
-      <div className="relative mx-auto max-w-[1400px] px-8 lg:px-12">
-        <div className="mb-16">
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-semibold tracking-[0.25em] text-brand">02</span>
-            <span className="h-px w-8 bg-brand/50" />
-            <span className="text-xs font-medium tracking-[0.2em] text-text-muted">{t.education.section}</span>
+    <section
+      id="education"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-background
+        transition-colors
+        duration-300
+
+        sm:py-24
+        lg:py-28
+      "
+    >
+      {/* =========================
+          Background Glow
+      ========================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[0%]
+          top-[15%]
+          h-[260px]
+          w-[260px]
+          rounded-full
+          bg-brand/[0.04]
+          blur-[100px]
+
+          sm:right-[5%]
+          sm:h-[320px]
+          sm:w-[320px]
+
+          lg:right-[10%]
+          lg:top-[20%]
+          lg:h-[400px]
+          lg:w-[400px]
+          lg:blur-[130px]
+        "
+      />
+
+      {/* =========================
+          Container
+      ========================== */}
+
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-[1400px]
+          px-5
+
+          sm:px-8
+
+          lg:px-12
+        "
+      >
+        {/* =========================
+            Header
+        ========================== */}
+
+        <div className="mb-12 sm:mb-14 lg:mb-16">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span
+              className="
+                text-[11px]
+                font-semibold
+                tracking-[0.25em]
+                text-brand
+
+                sm:text-xs
+              "
+            >
+              02
+            </span>
+
+            <span
+              className="
+                h-px
+                w-6
+                bg-brand/50
+
+                sm:w-8
+              "
+            />
+
+            <span
+              className="
+                text-[10px]
+                font-medium
+                tracking-[0.15em]
+                text-text-muted
+
+                sm:text-xs
+                sm:tracking-[0.2em]
+              "
+            >
+              {t.education.section}
+            </span>
           </div>
-          <h2 className="mt-6 max-w-[700px] text-4xl font-bold leading-[1.1] tracking-[-0.035em] text-white sm:text-5xl">
+
+          <h2
+            className="
+              mt-5
+              max-w-[700px]
+
+              text-3xl
+              font-bold
+              leading-[1.1]
+              tracking-[-0.035em]
+              text-text-primary
+
+              sm:mt-6
+              sm:text-4xl
+
+              md:text-5xl
+            "
+          >
             {t.education.heading}
-            <span className="block text-white/35">{t.education.headingAccent}</span>
+
+            <span
+              className="
+                block
+                text-text-secondary/50
+              "
+            >
+              {t.education.headingAccent}
+            </span>
           </h2>
-          <p className="mt-6 max-w-[620px] text-sm leading-7 text-text-muted">{t.education.intro}</p>
+
+          <p
+            className="
+              mt-5
+              max-w-[620px]
+
+              text-sm
+              leading-7
+              text-text-muted
+
+              sm:mt-6
+            "
+          >
+            {t.education.intro}
+          </p>
         </div>
+
+        {/* =========================
+            Timeline
+        ========================== */}
 
         <div className="relative">
           {education.map((item) => (
