@@ -242,7 +242,7 @@ export default function About() {
                 "
               >
                 <img
-                  src="/mahdi2.png"
+                  src="/mahdi2.webp"
                   alt="Mahdi Alizadeh"
                   className="h-full w-full object-cover"
                 />

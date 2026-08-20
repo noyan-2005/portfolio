@@ -1,87 +1,188 @@
+import EducationItem from "./EducationItem";
+
 import { useLanguage } from "../../context/LanguageContext";
 import { getTranslations } from "../../data/translations";
 
-const experiences = [
+const education = [
   {
-    period: "2025",
+    year: "2023",
     title: {
-      en: "Frontend Developer",
-      fa: "توسعه‌دهنده فرانت‌اند",
-    },
-    company: {
-      en: "Polaris",
-      fa: "Polaris",
+      en: "Computer Engineering",
+      fa: "مهندسی کامپیوتر",
     },
     type: {
-      en: "Professional Experience",
-      fa: "تجربه حرفه‌ای",
+      en: "Bachelor's Degree",
+      fa: "مقطع کارشناسی",
+    },
+    institution: {
+      en: "University",
+      fa: "دانشگاه",
     },
     description: {
-      en: "Worked on modern web applications using React, Next.js and Tailwind CSS, gaining hands-on experience in responsive interfaces and production-ready frontend solutions.",
-      fa: "روی اپلیکیشن‌های وب مدرن با React، Next.js و Tailwind CSS کار کردم و در ساخت رابط‌های واکنش‌گرا و راهکارهای فرانت‌اند آماده تولید تجربه کسب کردم.",
+      en: "Studying computer engineering while building practical experience through programming, frontend development and personal projects.",
+      fa: "در حال تحصیل در رشته مهندسی کامپیوتر و همزمان کسب تجربه عملی از طریق برنامه‌نویسی، توسعه فرانت‌اند و پروژه‌های شخصی.",
     },
     tags: {
-      en: ["React", "Next.js", "Tailwind CSS"],
-      fa: ["React", "Next.js", "Tailwind CSS"],
+      en: [
+        "Computer Science",
+        "Programming",
+        "Software Development",
+      ],
+      fa: [
+        "علوم کامپیوتر",
+        "برنامه‌نویسی",
+        "توسعه نرم‌افزار",
+      ],
     },
-    current: false,
+    current: true,
   },
+
   {
-    period: "2026 — Present",
+    year: "2023",
     title: {
-      en: "Freelance Developer",
-      fa: "توسعه‌دهنده فریلنس",
-    },
-    company: {
-      en: "Independent",
-      fa: "مستقل",
+      en: "Frontend Development",
+      fa: "توسعه فرانت‌اند",
     },
     type: {
-      en: "Freelance",
-      fa: "فریلنس",
+      en: "Self-directed Learning",
+      fa: "یادگیری خودآموز",
+    },
+    institution: {
+      en: "Independent Learning",
+      fa: "یادگیری مستقل",
     },
     description: {
-      en: "Working independently with clients and personal projects, building modern web experiences and continuously expanding my skills across frontend and backend development.",
-      fa: "به‌صورت مستقل روی پروژه‌های شخصی و همکاری با مشتریان کار می‌کنم و همزمان مهارت‌هایم را در توسعه فرانت‌اند و بک‌اند گسترش می‌دهم.",
+      en: "Continuously learning modern frontend technologies and applying them through real-world projects and experiments.",
+      fa: "به‌صورت مداوم فناوری‌های مدرن فرانت‌اند را یاد می‌گیرم و آن‌ها را در پروژه‌ها و آزمایش‌های واقعی به کار می‌برم.",
     },
     tags: {
-      en: ["Frontend", "React", "Freelance", "Next.js"],
-      fa: ["Frontend", "React", "Freelance", "Next.js"],
+      en: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+      ],
+      fa: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+      ],
+    },
+    current: true,
+  },
+
+  {
+    year: "2025 — 2026",
+    title: {
+      en: "Product & Digital Development",
+      fa: "توسعه محصول دیجیتال",
+    },
+    type: {
+      en: "Practical Experience",
+      fa: "تجربه عملی",
+    },
+    institution: {
+      en: "Personal Projects",
+      fa: "پروژه‌های شخصی",
+    },
+    description: {
+      en: "Learning through building digital products, exploring product thinking, UI/UX and the process of turning ideas into working products.",
+      fa: "از طریق ساخت محصولات دیجیتال، تفکر محصول، UI/UX و تبدیل ایده‌ها به محصولات واقعی در حال یادگیری هستم.",
+    },
+    tags: {
+      en: [
+        "Product Thinking",
+        "UI/UX",
+        "Startup",
+        "Problem Solving",
+      ],
+      fa: [
+        "تفکر محصول",
+        "UI/UX",
+        "استارتاپ",
+        "حل مسئله",
+      ],
+    },
+    current: true,
+  },
+
+  {
+    year: "2026 — Now",
+    title: {
+      en: "Backend Development",
+      fa: "توسعه بک‌اند",
+    },
+    type: {
+      en: "Self-directed Learning",
+      fa: "یادگیری خودآموز",
+    },
+    institution: {
+      en: "Independent Learning",
+      fa: "یادگیری مستقل",
+    },
+    description: {
+      en: "Learning backend development with Python, focusing on APIs, databases and server-side application development.",
+      fa: "در حال یادگیری توسعه بک‌اند با Python و تمرکز روی APIها، دیتابیس و توسعه سمت سرور.",
+    },
+    tags: {
+      en: [
+        "Python",
+        "Backend",
+        "APIs",
+        "Databases",
+      ],
+      fa: [
+        "Python",
+        "Backend",
+        "API",
+        "Database",
+      ],
     },
     current: true,
   },
 ];
 
-export default function Experience() {
+export default function Education() {
   const { language } = useLanguage();
   const t = getTranslations(language);
 
   return (
     <section
-      id="experience"
+      id="education"
       className="
         relative
         min-h-screen
         overflow-hidden
+
         bg-background
-        py-28
-        text-text-primary
+
+        py-2
+
         transition-colors
         duration-300
       "
     >
-      {/* Glow */}
+      {/* Background Glow */}
 
       <div
         className="
           pointer-events-none
           absolute
-          left-[10%]
-          top-[25%]
+          right-[10%]
+          top-[20%]
+
           h-[400px]
           w-[400px]
+
           rounded-full
-          bg-brand/[0.05]
+
+          bg-brand/[0.04]
+
           blur-[130px]
         "
       />
@@ -90,8 +191,10 @@ export default function Experience() {
         className="
           relative
           mx-auto
-          max-w-[1350px]
+          max-w-[1400px]
+
           px-8
+
           lg:px-12
         "
       >
@@ -107,10 +210,16 @@ export default function Experience() {
                 text-brand
               "
             >
-              03
+              02
             </span>
 
-            <span className="h-px w-8 bg-brand/50" />
+            <span
+              className="
+                h-px
+                w-8
+                bg-brand/50
+              "
+            />
 
             <span
               className="
@@ -120,269 +229,74 @@ export default function Experience() {
                 text-text-muted
               "
             >
-              {t.experience.section}
+              {t.education.section}
             </span>
           </div>
 
           <h2
             className="
               mt-6
-              max-w-[720px]
+              max-w-[700px]
+
               text-4xl
               font-bold
               leading-[1.1]
               tracking-[-0.035em]
+
               text-text-primary
-              transition-colors
-              duration-300
+
               sm:text-5xl
             "
           >
-            {t.experience.heading}
+            {t.education.heading}
 
             <span
               className="
                 block
-                text-text-primary/35
+                text-text-secondary/50
               "
             >
-              {t.experience.headingAccent}
+              {t.education.headingAccent}
             </span>
           </h2>
 
           <p
             className="
               mt-6
-              max-w-[650px]
+              max-w-[620px]
+
               text-sm
               leading-7
               text-text-muted
             "
           >
-            {t.experience.intro}
+            {t.education.intro}
           </p>
         </div>
 
         {/* Timeline */}
 
         <div className="relative">
-          <div
-            className="
-              absolute
-              bottom-0
-              left-[105px]
-              top-0
-              hidden
-              w-px
-              bg-border
-              sm:block
-            "
-          />
-
-          <div className="space-y-10">
-            {experiences.map((experience) => (
-              <ExperienceItem
-                key={experience.period}
-                experience={{
-                  ...experience,
-                  title: experience.title[language],
-                  company: experience.company[language],
-                  type: experience.type[language],
-                  description:
-                    experience.description[language],
-                  tags: experience.tags[language],
-                }}
-                currentLabel={t.experience.current}
-              />
-            ))}
-          </div>
+          {education.map((item) => (
+            <EducationItem
+              key={`${item.year}-${item.title.en}`}
+              {...item}
+              title={item.title[language]}
+              type={item.type[language]}
+              institution={
+                item.institution[language]
+              }
+              description={
+                item.description[language]
+              }
+              tags={item.tags[language]}
+              currentLabel={
+                t.education.current
+              }
+            />
+          ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function ExperienceItem({
-  experience,
-  currentLabel,
-}) {
-  return (
-    <article
-      className="
-        group
-        relative
-        grid
-        grid-cols-1
-        gap-5
-        sm:grid-cols-[90px_30px_1fr]
-        sm:gap-5
-      "
-    >
-      {/* Period */}
-
-      <div className="pt-6 sm:text-right">
-        <span
-          className={`
-            text-xs
-            font-medium
-            tracking-wider
-            ${
-              experience.current
-                ? "text-brand"
-                : "text-text-muted"
-            }
-          `}
-        >
-          {experience.period}
-        </span>
-      </div>
-
-      {/* Timeline Dot */}
-
-      <div className="relative hidden sm:flex">
-        <div
-          className={`
-            relative
-            z-10
-            mt-8
-            size-3
-            rounded-full
-            border
-            ${
-              experience.current
-                ? "border-brand bg-brand shadow-[0_0_16px_rgba(0,213,239,0.45)]"
-                : "border-border bg-background"
-            }
-          `}
-        />
-      </div>
-
-      {/* Experience Card */}
-
-      <div
-        className="
-          relative
-          max-w-[950px]
-          overflow-hidden
-          rounded-2xl
-          border
-          border-border
-          bg-surface/40
-          p-7
-          backdrop-blur-sm
-          transition-all
-          duration-300
-          hover:border-brand/25
-          hover:bg-surface/60
-        "
-      >
-        <div className="relative">
-          <div
-            className="
-              flex
-              flex-wrap
-              items-center
-              justify-between
-              gap-3
-            "
-          >
-            <div>
-              <p
-                className="
-                  text-xs
-                  font-medium
-                  uppercase
-                  tracking-[0.18em]
-                  text-brand/80
-                "
-              >
-                {experience.type}
-              </p>
-
-              <h3
-                className="
-                  mt-2
-                  text-2xl
-                  font-semibold
-                  tracking-tight
-                  text-text-primary
-                "
-              >
-                {experience.title}
-              </h3>
-            </div>
-
-            {experience.current && (
-              <span
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-emerald-500/20
-                  bg-emerald-500/[0.06]
-                  px-3
-                  py-1.5
-                  text-[10px]
-                  font-medium
-                  uppercase
-                  tracking-wider
-                  text-emerald-500
-                "
-              >
-                <span className="size-1.5 rounded-full bg-emerald-500" />
-                {currentLabel}
-              </span>
-            )}
-          </div>
-
-          <p
-            className="
-              mt-3
-              text-sm
-              font-medium
-              text-text-secondary
-            "
-          >
-            {experience.company}
-          </p>
-
-          <p
-            className="
-              mt-5
-              max-w-[720px]
-              text-sm
-              leading-7
-              text-text-muted
-            "
-          >
-            {experience.description}
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-2">
-            {experience.tags.map((tag) => (
-              <span
-                key={tag}
-                className="
-                  rounded-md
-                  border
-                  border-border
-                  bg-background/40
-                  px-2.5
-                  py-1
-                  text-[11px]
-                  text-text-muted
-                  transition-colors
-                  duration-300
-                "
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </article>
   );
 }
