@@ -82,7 +82,7 @@ export default function Hero() {
         {/* Image */}
 
         <img
-          src="/mahdi.webp"
+          src={`${import.meta.env.BASE_URL}mahdi.webp`}
           alt=""
           aria-hidden="true"
           className="
@@ -408,7 +408,7 @@ export default function Hero() {
             "
           >
             <img
-              src="/mahdi.webp"
+              src={`${import.meta.env.BASE_URL}mahdi.webp`}
               alt="Mahdi Alizadeh"
               className="
                 h-full
