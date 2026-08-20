@@ -343,7 +343,7 @@ Error generating stack: `+e.message+`
           inset-0\r
 \r
           md:hidden\r
-        `,children:[(0,k.jsx)(`img`,{src:`/mahdi.webp`,alt:``,"aria-hidden":`true`,className:`\r
+        `,children:[(0,k.jsx)(`img`,{src:`/portfolio/mahdi.webp`,alt:``,"aria-hidden":`true`,className:`\r
             absolute\r
             inset-0\r
 \r
@@ -530,7 +530,7 @@ Error generating stack: `+e.message+`
 \r
               lg:h-[520px]\r
               lg:w-[390px]\r
-            `,children:(0,k.jsx)(`img`,{src:`/mahdi.webp`,alt:`Mahdi Alizadeh`,className:`\r
+            `,children:(0,k.jsx)(`img`,{src:`/portfolio/mahdi.webp`,alt:`Mahdi Alizadeh`,className:`\r
                 h-full\r
                 w-full\r
                 object-cover\r
@@ -702,7 +702,7 @@ Error generating stack: `+e.message+`
 \r
                   sm:max-w-[220px]\r
                   sm:rounded-[24px]\r
-                `,children:(0,k.jsx)(`img`,{src:`/mahdi2.webp`,alt:`Mahdi Alizadeh`,className:`h-full w-full object-cover`})}),(0,k.jsxs)(`div`,{className:`mt-5 text-center sm:mt-6`,children:[(0,k.jsx)(`h3`,{className:`\r
+                `,children:(0,k.jsx)(`img`,{src:`/portfolio/mahdi2.webp`,alt:`Mahdi Alizadeh`,className:`h-full w-full object-cover`})}),(0,k.jsxs)(`div`,{className:`mt-5 text-center sm:mt-6`,children:[(0,k.jsx)(`h3`,{className:`\r
                     text-xl\r
                     font-bold\r
                     tracking-tight\r
