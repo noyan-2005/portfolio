@@ -8,7 +8,7 @@ import { getTranslations } from "../../data/translations";
 import LanguageSwitcher from "../header/LanguageSwitcher";
 import ThemeSwitcher from "../../context/ThemeSwitcher";
 
-import resume from "../../assets/Mahdi_Alizadeh_Resume";
+import resume from "../../assets/Mahdi_Alizadeh_Resume.pdf";
 
 export default function Hero() {
   const { language } = useLanguage();
