@@ -38,7 +38,7 @@ export const projects = [
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     images: [portfolio1, portfolio2, portfolio3, portfolio4],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/noyan-2005",
+    githubUrl: "https://github.com/noyan-2005/portfolio",
     featured: true,
   },
   {
