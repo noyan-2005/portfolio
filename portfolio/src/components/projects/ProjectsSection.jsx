@@ -1,20 +1,30 @@
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
 import { projects } from "./projects";
-import { useLanguage } from "../../context/LanguageContext";
-import { getTranslations } from "../../data/translations";
+import {
+  useLanguage,
+} from "../../context/LanguageContext";
+import {
+  getTranslations,
+} from "../../data/translations";
+
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 
 export default function ProjectsSection() {
   const { language } = useLanguage();
   const t = getTranslations(language);
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedProject, setSelectedProject] =
@@ -36,10 +46,6 @@ export default function ProjectsSection() {
     );
   }, [totalProjects]);
 
-  /* --------------------------------
-     Auto Play
-  -------------------------------- */
-
   useEffect(() => {
     if (isPaused || selectedProject) return;
 
@@ -53,10 +59,6 @@ export default function ProjectsSection() {
     selectedProject,
     goNext,
   ]);
-
-  /* --------------------------------
-     Keyboard Navigation
-  -------------------------------- */
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -88,10 +90,6 @@ export default function ProjectsSection() {
     goPrevious,
   ]);
 
-  /* --------------------------------
-     Calculate Card Position
-  -------------------------------- */
-
   const getPosition = useCallback(
     (index) => {
       let difference =
@@ -116,22 +114,18 @@ export default function ProjectsSection() {
     [activeIndex, totalProjects]
   );
 
-  /* --------------------------------
-     Visible Projects
-  -------------------------------- */
-
- const visibleProjects = useMemo(() => {
-  return projects
-    .map((project, index) => ({
-      project,
-      index,
-      position: getPosition(index),
-    }))
-    .filter(
-      ({ position }) =>
-        position >= -1 && position <= 1
-    );
-}, [getPosition]);
+  const visibleProjects = useMemo(() => {
+    return projects
+      .map((project, index) => ({
+        project,
+        index,
+        position: getPosition(index),
+      }))
+      .filter(
+        ({ position }) =>
+          position >= -1 && position <= 1
+      );
+  }, [getPosition]);
 
   return (
     <>
@@ -141,13 +135,14 @@ export default function ProjectsSection() {
           relative
           min-h-screen
           overflow-hidden
-          bg-[#020817]
+          bg-background
           py-2
+          text-text-primary
+          transition-colors
+          duration-300
         "
       >
-        {/* --------------------------------
-            Background Glow
-        -------------------------------- */}
+        {/* Background Glow */}
 
         <div
           className="
@@ -158,7 +153,7 @@ export default function ProjectsSection() {
             h-[450px]
             w-[450px]
             rounded-full
-            bg-brand/[0.035]
+            bg-brand/[0.045]
             blur-[140px]
           "
         />
@@ -172,7 +167,7 @@ export default function ProjectsSection() {
             h-[350px]
             w-[350px]
             rounded-full
-            bg-brand/[0.025]
+            bg-brand/[0.035]
             blur-[120px]
           "
         />
@@ -186,9 +181,7 @@ export default function ProjectsSection() {
             lg:px-12
           "
         >
-          {/* --------------------------------
-              Header
-          -------------------------------- */}
+          {/* Header */}
 
           <div className="mb-12">
             <div className="flex items-center gap-3">
@@ -200,7 +193,7 @@ export default function ProjectsSection() {
                   text-brand
                 "
               >
-                03
+                04
               </span>
 
               <span className="h-px w-8 bg-brand/50" />
@@ -225,12 +218,20 @@ export default function ProjectsSection() {
                 font-bold
                 leading-[1.1]
                 tracking-[-0.035em]
-                text-white
+                text-text-primary
+                transition-colors
+                duration-300
                 sm:text-5xl
               "
             >
               {t.projects.heading}
-              <span className="block text-white/35">
+
+              <span
+                className="
+                  block
+                  text-text-primary/35
+                "
+              >
                 {t.projects.headingAccent}
               </span>
             </h2>
@@ -248,9 +249,7 @@ export default function ProjectsSection() {
             </p>
           </div>
 
-          {/* --------------------------------
-              Carousel
-          -------------------------------- */}
+          {/* Carousel */}
 
           <div
             className="
@@ -285,7 +284,8 @@ export default function ProjectsSection() {
                 -translate-y-1/2
                 rounded-[50%]
                 border
-                border-white/[0.025]
+                border-border
+                opacity-40
               "
               style={{
                 transform:
@@ -335,15 +335,15 @@ export default function ProjectsSection() {
                 justify-center
                 rounded-full
                 border
-                border-white/10
-                bg-white/[0.035]
-                text-white/70
+                border-border
+                bg-surface/60
+                text-text-secondary
                 backdrop-blur-xl
                 transition-all
                 duration-300
                 hover:border-brand/30
                 hover:bg-brand/10
-                hover:text-white
+                hover:text-brand
                 md:left-4
                 md:h-12
                 md:w-12
@@ -371,15 +371,15 @@ export default function ProjectsSection() {
                 justify-center
                 rounded-full
                 border
-                border-white/10
-                bg-white/[0.035]
-                text-white/70
+                border-border
+                bg-surface/60
+                text-text-secondary
                 backdrop-blur-xl
                 transition-all
                 duration-300
                 hover:border-brand/30
                 hover:bg-brand/10
-                hover:text-white
+                hover:text-brand
                 md:right-4
                 md:h-12
                 md:w-12
@@ -389,9 +389,7 @@ export default function ProjectsSection() {
             </button>
           </div>
 
-          {/* --------------------------------
-              Carousel Footer
-          -------------------------------- */}
+          {/* Carousel Footer */}
 
           <div
             className="
@@ -400,12 +398,10 @@ export default function ProjectsSection() {
               items-center
               justify-center
               border-t
-              border-white/[0.06]
+              border-border
               pt-6
             "
           >
-            {/* Indicators */}
-
             <div className="flex items-center gap-2">
               {projects.map(
                 (project, index) => (
@@ -424,21 +420,16 @@ export default function ProjectsSection() {
                       ${
                         index === activeIndex
                           ? "w-8 bg-brand"
-                          : "w-2 bg-white/15 hover:bg-white/30"
+                          : "w-2 bg-border hover:bg-text-muted"
                       }
                     `}
                   />
                 )
               )}
             </div>
-
           </div>
         </div>
       </section>
-
-      {/* --------------------------------
-          Project Modal
-      -------------------------------- */}
 
       <ProjectModal
         project={selectedProject}

@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { getTranslations } from "../../data/translations";
 import { motion, AnimatePresence } from "framer-motion";
+
 import {
   X,
-//   Github,
   ExternalLink,
   Code2,
 } from "lucide-react";
@@ -48,20 +48,54 @@ export default function ProjectModal({
     <AnimatePresence>
       {project && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8"
+          className="
+            fixed
+            inset-0
+            z-[9999]
+            flex
+            items-center
+            justify-center
+            p-4
+            md:p-8
+          "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           {/* Backdrop */}
+
           <motion.div
-            className="absolute inset-0 bg-black/75 backdrop-blur-xl"
+            className="
+              absolute
+              inset-0
+              bg-black/75
+              backdrop-blur-xl
+            "
             onClick={onClose}
           />
 
           {/* Modal */}
+
           <motion.div
-              className="modal-scrollbar relative z-10 max-h-[90vh] w-full max-w-5xl overflow-y-auto overflow-x-hidden rounded-[32px] border border-white/10 bg-[#111111] shadow-2xl"            initial={{
+            className="
+              modal-scrollbar
+              relative
+              z-10
+              max-h-[90vh]
+              w-full
+              max-w-5xl
+              overflow-y-auto
+              overflow-x-hidden
+              rounded-[32px]
+              border
+              border-border
+              bg-background
+              text-text-primary
+              shadow-2xl
+              transition-colors
+              duration-300
+            "
+            initial={{
               opacity: 0,
               y: 30,
               scale: 0.96,
@@ -82,48 +116,136 @@ export default function ProjectModal({
             }}
           >
             {/* Close */}
+
             <button
               onClick={onClose}
-              className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-md transition hover:bg-white/10"
+              className="
+                absolute
+                right-5
+                top-5
+                z-20
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-border
+                bg-background/60
+                text-text-primary
+                backdrop-blur-md
+                transition-all
+                duration-300
+                hover:border-brand/30
+                hover:bg-brand/10
+                hover:text-brand
+              "
               aria-label={t.projects.close}
             >
               <X size={20} />
             </button>
 
             {/* Hero image */}
-            <div className="relative aspect-video w-full overflow-hidden">
+
+            <div
+              className="
+                relative
+                aspect-video
+                w-full
+                overflow-hidden
+              "
+            >
               <img
                 src={project.images[0]}
                 alt={project.title}
-                className="h-full w-full object-cover"
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                "
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-background
+                  via-transparent
+                  to-transparent
+                "
+              />
             </div>
 
             {/* Content */}
-            <div className="relative -mt-10 px-6 pb-8 md:px-10">
+
+            <div
+              className="
+                relative
+                -mt-10
+                px-6
+                pb-8
+                md:px-10
+              "
+            >
               <div className="relative">
-                <p className="mb-2 text-xs uppercase tracking-[0.2em] text-white/40">
+                <p
+                  className="
+                    mb-2
+                    text-xs
+                    uppercase
+                    tracking-[0.2em]
+                    text-text-muted
+                  "
+                >
                   {project.category[language]}
                 </p>
 
-                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+                <h2
+                  className="
+                    text-3xl
+                    font-semibold
+                    tracking-tight
+                    text-text-primary
+                    md:text-5xl
+                  "
+                >
                   {project.title}
                 </h2>
               </div>
 
               {/* Description */}
+
               <div className="mt-8 max-w-3xl">
-                <p className="text-sm leading-7 text-white/60 md:text-base">
+                <p
+                  className="
+                    text-sm
+                    leading-7
+                    text-text-secondary
+                    md:text-base
+                  "
+                >
                   {project.description[language]}
                 </p>
               </div>
 
               {/* Technologies */}
+
               <div className="mt-8">
-                <div className="mb-3 flex items-center gap-2 text-sm font-medium text-white">
-                  <Code2 size={16} />
+                <div
+                  className="
+                    mb-3
+                    flex
+                    items-center
+                    gap-2
+                    text-sm
+                    font-medium
+                    text-text-primary
+                  "
+                >
+                  <Code2 size={16} className="text-brand" />
+
                   {t.projects.technologies}
                 </div>
 
@@ -132,7 +254,18 @@ export default function ProjectModal({
                     (technology) => (
                       <span
                         key={technology}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/60"
+                        className="
+                          rounded-full
+                          border
+                          border-border
+                          bg-surface/60
+                          px-3
+                          py-1.5
+                          text-xs
+                          text-text-secondary
+                          transition-colors
+                          duration-300
+                        "
                       >
                         {technology}
                       </span>
@@ -142,27 +275,69 @@ export default function ProjectModal({
               </div>
 
               {/* Buttons */}
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+
+              <div
+                className="
+                  mt-10
+                  flex
+                  flex-col
+                  gap-3
+                  sm:flex-row
+                "
+              >
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition hover:bg-white/90"
+                  className="
+                    group
+                    flex
+                    h-12
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-full
+                    bg-brand
+                    px-6
+                    text-sm
+                    font-medium
+                    text-background
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+                    hover:bg-brand/90
+                  "
                 >
                   <ExternalLink size={17} />
 
                   {t.projects.visitLive}
-
                 </a>
 
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 text-sm font-medium text-white transition hover:bg-white/10"
+                  className="
+                    flex
+                    h-12
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-full
+                    border
+                    border-border
+                    bg-surface/50
+                    px-6
+                    text-sm
+                    font-medium
+                    text-text-primary
+                    transition-all
+                    duration-300
+                    hover:border-brand/30
+                    hover:bg-brand/10
+                    hover:text-brand
+                  "
                 >
-                  {/* <Github size={17} /> */}
-
                   {t.projects.github}
                 </a>
               </div>
