@@ -8,6 +8,8 @@ import { getTranslations } from "../../data/translations";
 import LanguageSwitcher from "../header/LanguageSwitcher";
 import ThemeSwitcher from "../../context/ThemeSwitcher";
 
+import resume from "../../assets/Mahdi_Alizadeh_Resume";
+
 export default function Hero() {
   const { language } = useLanguage();
   const t = getTranslations(language);
@@ -310,7 +312,7 @@ export default function Hero() {
             "
           >
             <a
-              href="/resume.pdf"
+              href={resume}
               download="Mahdi-Alizadeh-Resume.pdf"
             >
               <Button variant="primary">
@@ -451,7 +453,7 @@ export default function Hero() {
             "
           >
             <a
-              href="/resume.pdf"
+              href={resume}
               download="Mahdi-Alizadeh-Resume.pdf"
               className="flex-1"
             >
