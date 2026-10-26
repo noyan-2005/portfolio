@@ -2050,6 +2050,7 @@ Error generating stack: `+e.message+`
               `,children:[(0,k.jsx)(`img`,{src:e.images[0],alt:e.title,className:`\r
                   h-full\r
                   w-full\r
+                  object-cover\r
                 `}),(0,k.jsx)(`div`,{className:`\r
                   absolute\r
                   inset-0\r
